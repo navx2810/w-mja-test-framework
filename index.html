@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <title>Mojo Testing Framework</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="tester-app" class="container">
+            <header class="flex between middle">
+                <div>
+                </div>
+                <div>
+                    <button class="btn">Options</button>
+                    <button class="btn">Back to Dashboard</button>
+                </div>
+            </header>
+            <test-info :info="info"></test-info>
+            <test-results></test-results>
+        </div>
+    </div>
+    
+
+        <script id="t-test-info" type="text/x-template">
+        <div class="col-xs-12 col-sm-6">
+            <div class="hr">
+                <h2>Info</h2>
+            </div>
+            <table v-show="info">
+                <tr v-show="info">
+                    <td>ID:</td>
+                    <td v-if="uuid">{{uuid}}</td>
+                    <td><button>edit</button></td>
+                </tr>
+                <tr v-show="info.lastRan">
+                    <td>Last Ran:</td>
+                    <td>{{info.lastRan}}</td>
+                </tr>
+                <tr v-show="info.results">
+                    <td>Results:</td>
+                    <td>{{results}}</td>
+                </tr>
+            </table>
+            <div v-show="!info">
+                <h4 class="text-center py-25">No test data available.</h4>
+            </div>
+            <div class="text-right xs-text-left">
+                <button class="btn" :disabled="!info">Download Tests</button>
+                <button class="btn">Generate Tests</button>
+            </div>
+        </div>
+    </script>
+
+        <script id="t-test-results" type="text/x-template">
+        <div class="col-xs-12 col-sm-6 xs-mt-50">
+            <div class="flex between middle hr">
+                <h2>Tests</h2>
+                <div>
+                    <button class="btn" :disabled="!info">Report</button>
+                    <button class="btn">Run</button>
+                </div>
+            </div>
+            <div v-show="!results">
+                <h4 class="text-center py-25">No tests have been run.</h4>
+            </div>
+        </div>
+    </script>
+</body>
+
+</html>

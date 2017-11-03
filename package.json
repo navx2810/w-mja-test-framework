@@ -1,0 +1,19 @@
+{
+  "name": "vue-testing-suite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Matt Fetterman <navx2810@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "poi": "^9.4.4"
+  },
+  "dependencies": {
+    "axios": "^0.17.0",
+    "bootstrap": "^3.3.7"
+  }
+}
